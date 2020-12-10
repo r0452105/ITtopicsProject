@@ -59,3 +59,4 @@ C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\
 C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\obj\Debug\Views\GenreScherm.g.cs
 C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\obj\Debug\Views\AnderScherm.baml
 C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\obj\Debug\Views\GenreScherm.baml
+C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\obj\Debug\Projectml.net.csprojAssemblyReference.cache

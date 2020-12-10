@@ -8,11 +8,20 @@ using Projectml.net.Views;
 
 namespace Projectml.net.ViewModels
 {
-    public class MainViewModel : ICommand
+    public class MainViewModel : BaseViewModel
     {
-        public event EventHandler CanExecuteChanged;
-        public bool CanExecute(object parameter)
+
+        public override string this[string columnName]
         {
+            get
+            {
+                return "";
+            }
+        }
+
+        public override bool CanExecute(object parameter)
+        {
+
             //returnwaarde true -> methode mag uitgevoerd worden
             //returnwaarde false -> methode mag niet uitgevoerd worden
             switch (parameter.ToString())
@@ -22,7 +31,7 @@ namespace Projectml.net.ViewModels
             }
             return true;
         }
-        public void Execute(object parameter)
+        public override void Execute(object parameter)
         {
             //Via parameter kom je te weten op welke knop er gedrukt is,  
             //instelling via CommandParameter in xaml
