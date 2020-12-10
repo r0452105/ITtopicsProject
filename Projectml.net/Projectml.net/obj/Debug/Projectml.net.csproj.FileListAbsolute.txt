@@ -36,7 +36,6 @@ C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\
 C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\bin\Debug\System.Threading.Channels.xml
 C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\bin\Debug\System.Threading.Tasks.Extensions.xml
-C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\obj\Debug\Projectml.net.csprojAssemblyReference.cache
 C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\obj\Debug\Views\MainView.g.cs
 C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\obj\Debug\App.g.cs
 C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\obj\Debug\Projectml.net_Content.g.cs
@@ -50,3 +49,13 @@ C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\
 C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\obj\Debug\Projectml.net.csproj.CopyComplete
 C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\obj\Debug\Projectml.net.exe
 C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\obj\Debug\Projectml.net.pdb
+C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\bin\Debug\MaterialDesignColors.dll
+C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\bin\Debug\MaterialDesignColors.pdb
+C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\obj\Debug\App.baml
+C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\obj\Debug\Views\AnderScherm.g.cs
+C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\obj\Debug\Views\GenreScherm.g.cs
+C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\obj\Debug\Views\AnderScherm.baml
+C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\obj\Debug\Views\GenreScherm.baml
