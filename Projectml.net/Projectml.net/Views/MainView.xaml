@@ -10,7 +10,7 @@
     <Grid>
         <StackPanel>
             <Button Content="Voorspel Genre" Margin="5" Command="{Binding}" CommandParameter="Genre"/>
-            <Button Content="Voorspel Anders" Margin="5" Command="{Binding}" CommandParameter="Anders"/>
+            <Button Content="Voorspel Anders" Margin="5" Command="{Binding Mode=OneWay}" CommandParameter="Anders"/>
             <Label Content="Under Construction" HorizontalAlignment="Center" FontSize="50" Margin="20"></Label>
             <Label Content="Made by Aaron" HorizontalAlignment="Right"></Label>
         </StackPanel>

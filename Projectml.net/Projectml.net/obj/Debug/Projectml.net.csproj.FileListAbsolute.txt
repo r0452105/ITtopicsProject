@@ -55,7 +55,5 @@ C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\
 C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\bin\Debug\MaterialDesignThemes.Wpf.pdb
 C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\bin\Debug\MaterialDesignThemes.Wpf.xml
 C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\obj\Debug\App.baml
-C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\obj\Debug\Views\AnderScherm.g.cs
-C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\obj\Debug\Views\GenreScherm.g.cs
-C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\obj\Debug\Views\AnderScherm.baml
-C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\obj\Debug\Views\GenreScherm.baml
+C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\obj\Debug\Views\GenreView.g.cs
+C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\obj\Debug\Views\GenreView.baml

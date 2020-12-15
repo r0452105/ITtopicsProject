@@ -44,13 +44,17 @@ namespace Projectml.net.ViewModels
 
         public void OpenGenre()
         {
-            GenreScherm view = new GenreScherm();
-            view.Show();
+            GenreView genreView = new GenreView();
+            GenreViewModel genreViewModel = new GenreViewModel();
+            genreView.DataContext = genreViewModel;
+            genreView.Show();
         }
-        public void OpenAnders()
+        public void OpenAnders() // temporary
         {
-            AnderScherm view = new AnderScherm();
-            view.Show();
+            GenreView genreView = new GenreView();
+            GenreViewModel genreViewModel = new GenreViewModel();
+            genreView.DataContext = genreViewModel;
+            genreView.Show();
         }
 
     }

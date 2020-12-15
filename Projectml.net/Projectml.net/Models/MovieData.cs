@@ -1,71 +1,90 @@
-﻿using System;
+﻿using Microsoft.ML.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.ML.Data;
 
 namespace Projectml.net.Models
 {
     public class MovieData
     {
-        [LoadColumn(0)]
-        public string TitleId;
+        [ColumnName("imdb_title_id"), LoadColumn(0)]
+        public string Imdb_title_id { get; set; }
 
-        [LoadColumn(1)]
-        public string Title;
 
-        [LoadColumn(2)]
-        public string OriginalTitle;
+        [ColumnName("title"), LoadColumn(1)]
+        public string Title { get; set; }
 
-        [LoadColumn(3)]
-        public int Year;
 
-        [LoadColumn(4)]
-        public DateTime PublishDate;
+        [ColumnName("original_title"), LoadColumn(2)]
+        public string Original_title { get; set; }
 
-        [LoadColumn(5), ColumnName("Label")]
-        public string Genre;
 
-        [LoadColumn(6)]
-        public TimeSpan Duration;
+        [ColumnName("year"), LoadColumn(3)]
+        public float Year { get; set; }
 
-        [LoadColumn(7)]
-        public string Country;
 
-        [LoadColumn(8)]
-        public string Language;
+        [ColumnName("date_published"), LoadColumn(4)]
+        public string Date_published { get; set; }
 
-        [LoadColumn(9)]
-        public string Director;
 
-        [LoadColumn(10)]
-        public string Writer;
+        [ColumnName("genre"), LoadColumn(5)]
+        public string Genre { get; set; }
 
-        [LoadColumn(11)]
-        public string ProductionCompany;
 
-        [LoadColumn(12)]
-        public string Actors; //mss een list ofzo idk
+        [ColumnName("duration"), LoadColumn(6)]
+        public float Duration { get; set; }
 
-        [LoadColumn(13)]
-        public string Description;
 
-        [LoadColumn(14)]
-        public double AverageVote;
+        [ColumnName("country"), LoadColumn(7)]
+        public string Country { get; set; }
 
-        [LoadColumn(15)]
-        public int Totalvotes;
 
-        [LoadColumn(16)]
-        public int UserReviews;
+        [ColumnName("language"), LoadColumn(8)]
+        public string Language { get; set; }
 
-        [LoadColumn(17)]
-        public int CriticsReviews;
+
+        [ColumnName("director"), LoadColumn(9)]
+        public string Director { get; set; }
+
+
+        [ColumnName("writer"), LoadColumn(10)]
+        public string Writer { get; set; }
+
+
+        [ColumnName("production_company"), LoadColumn(11)]
+        public string Production_company { get; set; }
+
+
+        [ColumnName("actors"), LoadColumn(12)]
+        public string Actors { get; set; }
+
+
+        [ColumnName("description"), LoadColumn(13)]
+        public string Description { get; set; }
+
+
+        [ColumnName("avg_vote"), LoadColumn(14)]
+        public float Avg_vote { get; set; }
+
+
+        [ColumnName("votes"), LoadColumn(15)]
+        public float Votes { get; set; }
+
+
+        [ColumnName("reviews_from_users"), LoadColumn(16)]
+        public float Reviews_from_users { get; set; }
+
+
+        [ColumnName("reviews_from_critics"), LoadColumn(17)]
+        public float Reviews_from_critics { get; set; }
+
     }
-    public class MoviePrediction : MovieData
+
+    public class MovieDataPrediction : MovieData
     {
         [ColumnName("PredictedLabel")]
-        public string Prediction { get; set; }
+        public String Prediction { get; set; }
     }
 }

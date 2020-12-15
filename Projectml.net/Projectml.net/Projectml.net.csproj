@@ -121,15 +121,14 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Models\ConsumeModel.cs" />
+    <Compile Include="ViewModels\ModelBuilder.cs" />
     <Compile Include="Models\MovieData.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\GenreViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
-    <Compile Include="Views\AnderScherm.xaml.cs">
-      <DependentUpon>AnderScherm.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\GenreScherm.xaml.cs">
-      <DependentUpon>GenreScherm.xaml</DependentUpon>
+    <Compile Include="Views\GenreView.xaml.cs">
+      <DependentUpon>GenreView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
@@ -153,7 +152,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Data\model.zip" />
+    <None Include="Data\MLModel.zip" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -164,11 +163,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Views\AnderScherm.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\GenreScherm.xaml">
+    <Page Include="Views\GenreView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -189,12 +184,12 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Data\IMDB DATASET MEDIUM.txt">
+    <Resource Include="Data\IMDBDATASETMEDIUM.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Data\IMDB DATASET SMALL.txt">
+    <Resource Include="Data\IMDBDATASETSMALL.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

@@ -1,5 +1,5 @@
-﻿using Microsoft.ML;
-using Projectml.net.Models;
+﻿using Projectml.net.Models;
+using Microsoft.ML;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -12,6 +12,7 @@ namespace Projectml.net.ViewModels
 {
     public class GenreViewModel : BaseViewModel
     {
+
         #region GettersAndSetters
         private string isTraining = "";
         public string IsTraining
@@ -68,12 +69,12 @@ namespace Projectml.net.ViewModels
                     this.Train();
                     break;
                 case "SaveModel":
-                    this.SaveModel(model, mlContext.Data.LoadFromTextFile<MovieData>(_dataPath, hasHeader: true).Schema);
+                    this.SaveModel(model, mlContext.Data.LoadFromTextFile<SpamData>(_dataPath, hasHeader: true).Schema);
                     break;
             }
         }
 
-        static readonly string _dataPath = Path.Combine(Environment.CurrentDirectory, "Data", "IMBD DATABASESET ALL.txt");
+        static readonly string _dataPath = Path.Combine(Environment.CurrentDirectory, "Data", "spam_detection.txt");
         static readonly string _modelPath = Path.Combine(Path.GetDirectoryName(Environment.GetCommandLineArgs()[0]), "..", "..", "Data", "model.zip");
         MLContext mlContext = new MLContext();
         TrainTestData splitDataView = new TrainTestData();
@@ -82,21 +83,20 @@ namespace Projectml.net.ViewModels
         {
             MovieData singleIssue = new MovieData()
             {
-                Genre= this.Text //problem
+                Title = this.Text
             };
 
             ITransformer savedModel = mlContext.Model.Load(_modelPath, out var modelInputSchema);
 
-            PredictionEngine<MovieData, MoviePrediction> predictionEngine = mlContext.Model.CreatePredictionEngine<MovieData, MoviePrediction>(savedModel);
+            PredictionEngine<MovieData, MovieDataPrediction> predictionEngine = mlContext.Model.CreatePredictionEngine<MovieData, MovieDataPrediction>(savedModel);
 
             var prediction = predictionEngine.Predict(singleIssue);
 
-            this.Result = prediction.ToString(); //maybeeee
+            this.Result = prediction.Prediction ? "Positive" : "Negative";
         }
 
         public void Train()
         {
-            Console.WriteLine("we get here");
             this.IsTraining = "Training ...";
 
             splitDataView = LoadData(mlContext);
@@ -104,12 +104,11 @@ namespace Projectml.net.ViewModels
             model = BuildAndTrainModel(mlContext, splitDataView.TrainSet);
 
             this.IsTraining = "Ready !";
-            
         }
 
         public static TrainTestData LoadData(MLContext mlContext)
         {
-            IDataView dataView = mlContext.Data.LoadFromTextFile<MovieData>(_dataPath, hasHeader: true);
+            IDataView dataView = mlContext.Data.LoadFromTextFile<SpamData>(_dataPath, hasHeader: true);
 
             TrainTestData splitDataView = mlContext.Data.TrainTestSplit(dataView, testFraction: 0.1);
 
@@ -118,11 +117,10 @@ namespace Projectml.net.ViewModels
 
         public static ITransformer BuildAndTrainModel(MLContext mlContext, IDataView splitTrainSet)
         {
-            var estimator = mlContext.Transforms.Text.FeaturizeText(outputColumnName: "Features", inputColumnName: nameof(MovieData.Genre)) // problem
-                .Append(mlContext.BinaryClassification.Trainers.SdcaLogisticRegression(labelColumnName: "Label", featureColumnName: "Features")); //geen binary
+            var estimator = mlContext.Transforms.Text.FeaturizeText(outputColumnName: "Features", inputColumnName: nameof(SpamData.Title))
+                .Append(mlContext.BinaryClassification.Trainers.SdcaLogisticRegression(labelColumnName: "Label", featureColumnName: "Features"));
 
             var model = estimator.Fit(splitTrainSet);
-            Console.WriteLine("we get here");
 
             return model;
         }
@@ -130,7 +128,7 @@ namespace Projectml.net.ViewModels
         public void SaveModel(ITransformer model, DataViewSchema modelInputSchema)
         {
             mlContext.Model.Save(model, modelInputSchema, _modelPath);
-            Console.WriteLine("we get here");
         }
     }
 }
+
