@@ -121,7 +121,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Models\ConsumeModel.cs" />
     <Compile Include="ViewModels\ModelBuilder.cs" />
     <Compile Include="Models\MovieData.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />

@@ -85,6 +85,6 @@ namespace Projectml.net.Models
     public class MovieDataPrediction : MovieData
     {
         [ColumnName("PredictedLabel")]
-        public String Prediction { get; set; }
+        public string Prediction { get; set; }
     }
 }

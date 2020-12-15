@@ -57,3 +57,4 @@ C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\
 C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\obj\Debug\App.baml
 C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\obj\Debug\Views\GenreView.g.cs
 C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\obj\Debug\Views\GenreView.baml
+C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\obj\Debug\Projectml.net.csprojAssemblyReference.cache
