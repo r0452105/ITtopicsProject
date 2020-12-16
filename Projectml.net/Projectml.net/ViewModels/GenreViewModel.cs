@@ -27,6 +27,7 @@ namespace Projectml.net.ViewModels
             }
         }
 
+        
         private string isSaved = "";
         public string IsSaved
         {
@@ -37,6 +38,8 @@ namespace Projectml.net.ViewModels
                 NotifyPropertyChanged();
             }
         }
+        
+        
         private string textTitle = "";
         public string TextTitle
         {
@@ -47,6 +50,8 @@ namespace Projectml.net.ViewModels
                 NotifyPropertyChanged();
             }
         }
+        
+        
         private string textActors = "";
         public string TextActors
         {
@@ -57,6 +62,40 @@ namespace Projectml.net.ViewModels
                 NotifyPropertyChanged();
             }
         }
+
+        private string textDirector = "";
+        public string TextDirector
+        {
+            get { return this.textDirector; }
+            set
+            {
+                this.textDirector = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private string textWriter = "";
+        public string TextWriter
+        {
+            get { return this.textWriter; }
+            set
+            {
+                this.textWriter = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private string textProduction_Company = "";
+        public string TextProduction_Company
+        {
+            get { return this.textProduction_Company; }
+            set
+            {
+                this.textProduction_Company = value;
+                NotifyPropertyChanged();
+            }
+        }
+
         private string textDescription = "";
         public string TextDescription
         {
@@ -121,7 +160,11 @@ namespace Projectml.net.ViewModels
             MovieData singleIssue = new MovieData()
             {
                 Title = this.TextTitle,
-                Actors = this.TextActors
+                Actors = this.TextActors,
+                Description = this.TextDescription,
+                Director = this.TextDirector,
+                Writer = this.TextWriter,
+                Production_company = this.TextProduction_Company
             };
 
             ITransformer savedModel = mlContext.Model.Load(_modelPath, out var modelInputSchema);
@@ -159,7 +202,10 @@ namespace Projectml.net.ViewModels
                 .Append(mlContext.Transforms.Text.FeaturizeText(inputColumnName: "title", outputColumnName: "TitleFeaturized"))
                 .Append(mlContext.Transforms.Text.FeaturizeText(inputColumnName: "actors", outputColumnName: "ActorsFeaturized"))
                 .Append(mlContext.Transforms.Text.FeaturizeText(inputColumnName: "description", outputColumnName: "DescriptionFeaturized"))
-                .Append(mlContext.Transforms.Concatenate("Features", "TitleFeaturized", "ActorsFeaturized", "DescriptionFeaturized"))
+                .Append(mlContext.Transforms.Text.FeaturizeText(inputColumnName: "director", outputColumnName: "DirectorFeaturized"))
+                .Append(mlContext.Transforms.Text.FeaturizeText(inputColumnName: "writer", outputColumnName: "WriterFeaturized"))
+                .Append(mlContext.Transforms.Text.FeaturizeText(inputColumnName: "production_company", outputColumnName: "Production_CompanyFeaturized"))
+                .Append(mlContext.Transforms.Concatenate("Features", "TitleFeaturized", "ActorsFeaturized", "DescriptionFeaturized", "DirectorFeaturized", "WriterFeaturized", "Production_CompanyFeaturized"))
                 .AppendCacheCheckpoint(mlContext);
 
             var estimator = pipeline.Append(mlContext.MulticlassClassification.Trainers.SdcaMaximumEntropy("Label", "Features"))
@@ -182,6 +228,9 @@ namespace Projectml.net.ViewModels
             this.TextActors = "";
             this.TextTitle = "";
             this.TextDescription = "";
+            this.TextDirector = "";
+            this.TextWriter = "";
+            this.TextProduction_Company = "";
         }
     }
 }
