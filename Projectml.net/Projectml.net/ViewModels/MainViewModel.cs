@@ -27,7 +27,7 @@ namespace Projectml.net.ViewModels
             switch (parameter.ToString())
             {
                 case "Genre": return true;
-                case "Anders": return true;
+                case "Writer": return true;
             }
             return true;
         }
@@ -38,7 +38,7 @@ namespace Projectml.net.ViewModels
             switch (parameter.ToString())
             {
                 case "Genre": OpenGenre(); break;
-                case "Anders": OpenAnders(); break;
+                case "Writer": OpenWriter(); break;
             }
         }
 
@@ -49,12 +49,12 @@ namespace Projectml.net.ViewModels
             genreView.DataContext = genreViewModel;
             genreView.Show();
         }
-        public void OpenAnders() // temporary
+        public void OpenWriter() // temporary
         {
-            GenreView genreView = new GenreView();
-            GenreViewModel genreViewModel = new GenreViewModel();
-            genreView.DataContext = genreViewModel;
-            genreView.Show();
+            WriterView writerView = new WriterView();
+            WriterViewModel writerViewModel = new WriterViewModel();
+            writerView.DataContext = writerViewModel;
+            writerView.Show();
         }
 
     }

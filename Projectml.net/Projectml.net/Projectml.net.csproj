@@ -125,6 +125,10 @@
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\GenreViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\WriterViewModel.cs" />
+    <Compile Include="Views\WriterView.xaml.cs">
+      <DependentUpon>WriterView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\GenreView.xaml.cs">
       <DependentUpon>GenreView.xaml</DependentUpon>
     </Compile>
@@ -163,6 +167,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\WriterView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\GenreView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
