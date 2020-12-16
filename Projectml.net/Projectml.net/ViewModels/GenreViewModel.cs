@@ -26,23 +26,44 @@ namespace Projectml.net.ViewModels
                 NotifyPropertyChanged();
             }
         }
-        private string texttitle = "";
-        public string TextTitle
+
+        private string isSaved = "";
+        public string IsSaved
         {
-            get { return this.texttitle; }
+            get { return this.isSaved; }
             set
             {
-                this.texttitle = value;
+                this.isSaved = value;
                 NotifyPropertyChanged();
             }
         }
-        private string textactors = "";
-        public string TextActors
+        private string textTitle = "";
+        public string TextTitle
         {
-            get { return this.textactors; }
+            get { return this.textTitle; }
             set
             {
-                this.textactors = value;
+                this.textTitle = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private string textActors = "";
+        public string TextActors
+        {
+            get { return this.textActors; }
+            set
+            {
+                this.textActors = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private string textDescription = "";
+        public string TextDescription
+        {
+            get { return this.textDescription; }
+            set
+            {
+                this.textDescription = value;
                 NotifyPropertyChanged();
             }
         }
@@ -89,7 +110,7 @@ namespace Projectml.net.ViewModels
             }
         }
 
-        static readonly string _dataPath = Path.Combine(Environment.CurrentDirectory, "Data", "IMDBDATASETSMALL.txt");
+        static readonly string _dataPath = Path.Combine(Environment.CurrentDirectory, "Data", "IMDBDATASETLARGE.txt");
         static readonly string _modelPath = Path.Combine(Path.GetDirectoryName(Environment.GetCommandLineArgs()[0]), "..", "..", "Data", "MLModel.zip");
         MLContext mlContext = new MLContext();
         TrainTestData splitDataView = new TrainTestData();
@@ -137,7 +158,8 @@ namespace Projectml.net.ViewModels
             var pipeline = mlContext.Transforms.Conversion.MapValueToKey(inputColumnName: "genre", outputColumnName: "Label")
                 .Append(mlContext.Transforms.Text.FeaturizeText(inputColumnName: "title", outputColumnName: "TitleFeaturized"))
                 .Append(mlContext.Transforms.Text.FeaturizeText(inputColumnName: "actors", outputColumnName: "ActorsFeaturized"))
-                .Append(mlContext.Transforms.Concatenate("Features", "TitleFeaturized", "ActorsFeaturized"))
+                .Append(mlContext.Transforms.Text.FeaturizeText(inputColumnName: "description", outputColumnName: "DescriptionFeaturized"))
+                .Append(mlContext.Transforms.Concatenate("Features", "TitleFeaturized", "ActorsFeaturized", "DescriptionFeaturized"))
                 .AppendCacheCheckpoint(mlContext);
 
             var estimator = pipeline.Append(mlContext.MulticlassClassification.Trainers.SdcaMaximumEntropy("Label", "Features"))
@@ -151,11 +173,15 @@ namespace Projectml.net.ViewModels
         public void SaveModel(ITransformer model, DataViewSchema modelInputSchema)
         {
             mlContext.Model.Save(model, modelInputSchema, _modelPath);
+            this.IsSaved = "Saved";
         }
 
         public void Clearing()
         {
             this.Result = "";
+            this.TextActors = "";
+            this.TextTitle = "";
+            this.TextDescription = "";
         }
     }
 }

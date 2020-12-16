@@ -121,7 +121,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ViewModels\ModelBuilder.cs" />
     <Compile Include="Models\MovieData.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\GenreViewModel.cs" />
@@ -174,12 +173,12 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Data\IMDB DATASET ALL.txt">
+    <Resource Include="Data\IMDBDATASETALL.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Data\IMDB DATASET LARGE.txt">
+    <Resource Include="Data\IMDBDATASETLARGE.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

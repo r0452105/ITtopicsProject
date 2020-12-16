@@ -6,16 +6,19 @@
         xmlns:local="clr-namespace:Projectml.net.Views"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="GenreView" Height="450" Width="800">
+        Title="GenreView" Height="656.596" Width="800">
     <Grid>
         <Button Content="Train Model" HorizontalAlignment="Left" Margin="45,40,0,0" VerticalAlignment="Top" Width="291" Command="{Binding}" CommandParameter="Train" Height="34"/>
         <Label Content="{Binding IsTraining}" HorizontalAlignment="Left" Margin="45,79,0,0" VerticalAlignment="Top" Height="32" Width="112"/>
+        <Label Content="{Binding IsSaved}" HorizontalAlignment="Left" Margin="384,79,0,0" VerticalAlignment="Top" Height="32" Width="112"/>
+
 
         <TextBox HorizontalAlignment="Left" Height="32" Margin="217,149,0,0" TextWrapping="Wrap" materialDesign:HintAssist.Hint="titel" Text="{Binding TextTitle}" VerticalAlignment="Top" Width="340" />
         <TextBox HorizontalAlignment="Left" Height="32" Margin="217,186,0,0" TextWrapping="Wrap" materialDesign:HintAssist.Hint="acteurs" Text="{Binding TextActors}" VerticalAlignment="Top" Width="340" />
-        <Button Content="Check Prediction" HorizontalAlignment="Left" Margin="217,223,0,0" VerticalAlignment="Top" Width="340" Height="32" Command="{Binding}" CommandParameter="CheckSentiment"/>
-        <Label Content="{Binding Result}" HorizontalAlignment="Left" Margin="217,260,0,0" VerticalAlignment="Top" Height="25" Width="340"/>
-        <Button Content="Clear" HorizontalAlignment="Left" Margin="217,290,0,0" VerticalAlignment="Top" Width="340" Command="{Binding}" CommandParameter="Clear" Height="27"/>
+        <TextBox HorizontalAlignment="Left" Height="98" Margin="217,223,0,0" TextWrapping="Wrap" materialDesign:HintAssist.Hint="omschrijving" Text="{Binding TextDescription}" VerticalAlignment="Top" Width="340" />
+        <Button Content="Check Prediction" HorizontalAlignment="Left" Margin="217,462,0,0" VerticalAlignment="Top" Width="340" Height="32" Command="{Binding}" CommandParameter="CheckSentiment"/>
+        <Label Content="{Binding Result}" HorizontalAlignment="Left" Margin="217,499,0,0" VerticalAlignment="Top" Height="25" Width="340"/>
+        <Button Content="Clear" HorizontalAlignment="Left" Margin="217,529,0,0" VerticalAlignment="Top" Width="340" Command="{Binding}" CommandParameter="Clear" Height="27"/>
         <Button Content="Save Model" HorizontalAlignment="Left" Margin="384,40,0,0" VerticalAlignment="Top" Width="327" Command="{Binding}" CommandParameter="SaveModel" Height="34"/>
     </Grid>
 </Window>
