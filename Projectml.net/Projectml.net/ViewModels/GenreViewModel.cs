@@ -26,13 +26,23 @@ namespace Projectml.net.ViewModels
                 NotifyPropertyChanged();
             }
         }
-        private string text = "";
-        public string Text
+        private string texttitle = "";
+        public string TextTitle
         {
-            get { return this.text; }
+            get { return this.texttitle; }
             set
             {
-                this.text = value;
+                this.texttitle = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private string textactors = "";
+        public string TextActors
+        {
+            get { return this.textactors; }
+            set
+            {
+                this.textactors = value;
                 NotifyPropertyChanged();
             }
         }
@@ -73,10 +83,13 @@ namespace Projectml.net.ViewModels
                 case "SaveModel":
                     this.SaveModel(model, mlContext.Data.LoadFromTextFile<MovieData>(_dataPath, hasHeader: true).Schema);
                     break;
+                case "Clear":
+                    this.Clearing();
+                    break;
             }
         }
 
-        static readonly string _dataPath = Path.Combine(Environment.CurrentDirectory, "Data", "IMDBDATASETLARGE.txt");
+        static readonly string _dataPath = Path.Combine(Environment.CurrentDirectory, "Data", "IMDBDATASETSMALL.txt");
         static readonly string _modelPath = Path.Combine(Path.GetDirectoryName(Environment.GetCommandLineArgs()[0]), "..", "..", "Data", "MLModel.zip");
         MLContext mlContext = new MLContext();
         TrainTestData splitDataView = new TrainTestData();
@@ -86,7 +99,8 @@ namespace Projectml.net.ViewModels
         {
             MovieData singleIssue = new MovieData()
             {
-                Title = this.Text
+                Title = this.TextTitle,
+                Actors = this.TextActors
             };
 
             ITransformer savedModel = mlContext.Model.Load(_modelPath, out var modelInputSchema);
@@ -122,7 +136,8 @@ namespace Projectml.net.ViewModels
         {
             var pipeline = mlContext.Transforms.Conversion.MapValueToKey(inputColumnName: "genre", outputColumnName: "Label")
                 .Append(mlContext.Transforms.Text.FeaturizeText(inputColumnName: "title", outputColumnName: "TitleFeaturized"))
-                .Append(mlContext.Transforms.Concatenate("Features", "TitleFeaturized"))
+                .Append(mlContext.Transforms.Text.FeaturizeText(inputColumnName: "actors", outputColumnName: "ActorsFeaturized"))
+                .Append(mlContext.Transforms.Concatenate("Features", "TitleFeaturized", "ActorsFeaturized"))
                 .AppendCacheCheckpoint(mlContext);
 
             var estimator = pipeline.Append(mlContext.MulticlassClassification.Trainers.SdcaMaximumEntropy("Label", "Features"))
