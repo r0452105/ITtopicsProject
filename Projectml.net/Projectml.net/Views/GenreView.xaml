@@ -8,12 +8,13 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Title="GenreView" Height="450" Width="800">
     <Grid>
-            <Button Content="Train Model" HorizontalAlignment="Left" Margin="45,40,0,0" VerticalAlignment="Top" Width="75" Command="{Binding}" CommandParameter="Train"/>
-            <Label Content="{Binding IsTraining}" HorizontalAlignment="Left" Margin="45,79,0,0" VerticalAlignment="Top" Height="32" Width="112"/>
+        <Button Content="Train Model" HorizontalAlignment="Left" Margin="45,40,0,0" VerticalAlignment="Top" Width="291" Command="{Binding}" CommandParameter="Train"/>
+        <Label Content="{Binding IsTraining}" HorizontalAlignment="Left" Margin="45,79,0,0" VerticalAlignment="Top" Height="32" Width="112"/>
 
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="217,155,0,0" TextWrapping="Wrap" Text="{Binding Text}" VerticalAlignment="Top" Width="340"/>
-            <Button Content="Check Spam" HorizontalAlignment="Left" Margin="347,198,0,0" VerticalAlignment="Top" Width="104" Height="23" Command="{Binding}" CommandParameter="CheckSentiment"/>
-            <Label Content="{Binding Result}" HorizontalAlignment="Left" Margin="217,240,0,0" VerticalAlignment="Top"/>
-        <Button Content="Save Model" HorizontalAlignment="Left" Margin="236,40,0,0" VerticalAlignment="Top" Width="75" Command="{Binding}" CommandParameter="SaveModel"/>
+        <TextBox HorizontalAlignment="Left" Height="32" Margin="217,186,0,0" TextWrapping="Wrap" Text="{Binding Text}" VerticalAlignment="Top" Width="340" />
+        <Button Content="Check Spam" HorizontalAlignment="Left" Margin="217,223,0,0" VerticalAlignment="Top" Width="340" Height="32" Command="{Binding}" CommandParameter="CheckSentiment"/>
+        <Label Content="{Binding Result}" HorizontalAlignment="Left" Margin="217,260,0,0" VerticalAlignment="Top" Height="25" Width="340"/>
+        <Button Content="Clear" HorizontalAlignment="Left" Margin="217,290,0,0" VerticalAlignment="Top" Width="340" Command="{Binding}" CommandParameter="SaveModel" Height="27"/>
+        <Button Content="Save Model" HorizontalAlignment="Left" Margin="384,40,0,0" VerticalAlignment="Top" Width="327" Command="{Binding}" CommandParameter="Clearing"/>
     </Grid>
 </Window>

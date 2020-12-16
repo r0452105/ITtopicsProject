@@ -13,13 +13,7 @@ namespace Projectml_netML.ConsoleApp
             ModelInput sampleData = new ModelInput()
             {
                 Title = @"Miss Jerry",
-                Original_title = @"Miss Jerry",
-                Duration = 45F,
-                Director = @"Alexander Black",
-                Writer = @"Alexander Black",
-                Production_company = @"Alexander Black Photoplays",
                 Actors = @"Blanche Bayliss, William Courtenay, Chauncey Depew",
-                Description = @"The adventures of a female reporter in the 1890s.",
             };
 
             // Make a single prediction on the sample data and print results
@@ -27,13 +21,7 @@ namespace Projectml_netML.ConsoleApp
 
             Console.WriteLine("Using model to make single prediction -- Comparing actual Genre with predicted Genre from sample data...\n\n");
             Console.WriteLine($"Title: {sampleData.Title}");
-            Console.WriteLine($"Original_title: {sampleData.Original_title}");
-            Console.WriteLine($"Duration: {sampleData.Duration}");
-            Console.WriteLine($"Director: {sampleData.Director}");
-            Console.WriteLine($"Writer: {sampleData.Writer}");
-            Console.WriteLine($"Production_company: {sampleData.Production_company}");
             Console.WriteLine($"Actors: {sampleData.Actors}");
-            Console.WriteLine($"Description: {sampleData.Description}");
             Console.WriteLine($"\n\nPredicted Genre value {predictionResult.Prediction} \nPredicted Genre scores: [{String.Join(",", predictionResult.Score)}]\n\n");
             Console.WriteLine("=============== End of process, hit any key to finish ===============");
             Console.ReadKey();

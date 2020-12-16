@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projectml.net", "Projectml.net\Projectml.net.csproj", "{D95AF156-BE55-46EF-B674-2240E434A6F7}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Projectml.netML.Model", "Projectml.netML.Model\Projectml.netML.Model.csproj", "{58B8B00A-7E5E-4FD4-8464-71479ED4EBF1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Projectml.netML.ConsoleApp", "Projectml.netML.ConsoleApp\Projectml.netML.ConsoleApp.csproj", "{9FDF6D73-B734-4DD1-BB8F-7640DBD93091}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{D95AF156-BE55-46EF-B674-2240E434A6F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D95AF156-BE55-46EF-B674-2240E434A6F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D95AF156-BE55-46EF-B674-2240E434A6F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58B8B00A-7E5E-4FD4-8464-71479ED4EBF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58B8B00A-7E5E-4FD4-8464-71479ED4EBF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58B8B00A-7E5E-4FD4-8464-71479ED4EBF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58B8B00A-7E5E-4FD4-8464-71479ED4EBF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FDF6D73-B734-4DD1-BB8F-7640DBD93091}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FDF6D73-B734-4DD1-BB8F-7640DBD93091}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FDF6D73-B734-4DD1-BB8F-7640DBD93091}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FDF6D73-B734-4DD1-BB8F-7640DBD93091}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

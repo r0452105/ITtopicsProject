@@ -65,18 +65,82 @@ namespace Projectml.net.ViewModels
             switch (parameter.ToString())
             {
                 case "CheckSentiment":
-                    //this.CheckSentiment();
+                    this.CheckSentiment();
                     break;
                 case "Train":
-                    //this.Train();
+                    this.Train();
                     break;
                 case "SaveModel":
-                    //this.SaveModel(model, mlContext.Data.LoadFromTextFile<MovieData>(_dataPath, hasHeader: true).Schema);
+                    this.SaveModel(model, mlContext.Data.LoadFromTextFile<MovieData>(_dataPath, hasHeader: true).Schema);
                     break;
             }
         }
 
-       
+        static readonly string _dataPath = Path.Combine(Environment.CurrentDirectory, "Data", "IMDBDATASETSMALL.txt");
+        static readonly string _modelPath = Path.Combine(Path.GetDirectoryName(Environment.GetCommandLineArgs()[0]), "..", "..", "Data", "MLModel.zip");
+        MLContext mlContext = new MLContext();
+        TrainTestData splitDataView = new TrainTestData();
+        ITransformer model;
+
+        public void CheckSentiment()
+        {
+            MovieData singleIssue = new MovieData()
+            {
+                Title = this.Text
+            };
+
+            ITransformer savedModel = mlContext.Model.Load(_modelPath, out var modelInputSchema);
+
+            PredictionEngine<MovieData, MovieDataPrediction> predictionEngine = mlContext.Model.CreatePredictionEngine<MovieData, MovieDataPrediction>(savedModel);
+
+            var prediction = predictionEngine.Predict(singleIssue);
+
+            this.Result = prediction.Prediction.ToString();
+        }
+
+        public void Train()
+        {
+            this.IsTraining = "Training ...";
+
+            splitDataView = LoadData(mlContext);
+
+            model = BuildAndTrainModel(mlContext, splitDataView.TrainSet);
+
+            this.IsTraining = "Ready !";
+        }
+
+        public static TrainTestData LoadData(MLContext mlContext)
+        {
+            IDataView dataView = mlContext.Data.LoadFromTextFile<MovieData>(_dataPath, hasHeader: true);
+
+            TrainTestData splitDataView = mlContext.Data.TrainTestSplit(dataView, testFraction: 0.1);
+
+            return splitDataView;
+        }
+
+        public static ITransformer BuildAndTrainModel(MLContext mlContext, IDataView splitTrainSet)
+        {
+            var pipeline = mlContext.Transforms.Conversion.MapValueToKey(inputColumnName: "genre", outputColumnName: "Label")
+                .Append(mlContext.Transforms.Text.FeaturizeText(inputColumnName: "title", outputColumnName: "TitleFeaturized"))
+                .Append(mlContext.Transforms.Concatenate("Features", "TitleFeaturized"))
+                .AppendCacheCheckpoint(mlContext);
+
+            var estimator = pipeline.Append(mlContext.MulticlassClassification.Trainers.SdcaMaximumEntropy("Label", "Features"))
+                .Append(mlContext.Transforms.Conversion.MapKeyToValue("PredictedLabel"));
+
+            var model = estimator.Fit(splitTrainSet);
+
+            return model;
+        }
+
+        public void SaveModel(ITransformer model, DataViewSchema modelInputSchema)
+        {
+            mlContext.Model.Save(model, modelInputSchema, _modelPath);
+        }
+
+        public void Clearing()
+        {
+            this.Result = "";
+        }
     }
 }
-

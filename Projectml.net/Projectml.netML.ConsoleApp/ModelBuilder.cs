@@ -12,7 +12,7 @@ namespace Projectml_netML.ConsoleApp
 {
     public static class ModelBuilder
     {
-        private static string TRAIN_DATA_FILEPATH = @"C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\Data\IMDBDATASETSMALL.txt";
+        private static string TRAIN_DATA_FILEPATH = @"C:\Users\Gebruiker\Desktop\IMDBDATASETSMALL.txt";
         private static string MODEL_FILEPATH = @"C:\Users\Gebruiker\AppData\Local\Temp\MLVSTools\Projectml.netML\Projectml.netML.Model\MLModel.zip";
         // Create MLContext to be shared across the model creation workflow objects 
         // Set a random seed for repeatable/deterministic results across multiple trainings.
@@ -45,17 +45,13 @@ namespace Projectml_netML.ConsoleApp
         {
             // Data process configuration with pipeline data transformations 
             var dataProcessPipeline = mlContext.Transforms.Conversion.MapValueToKey("genre", "genre")
-                                      .Append(mlContext.Transforms.Categorical.OneHotHashEncoding(new[] { new InputOutputColumnPair("director", "director"), new InputOutputColumnPair("production_company", "production_company") }))
                                       .Append(mlContext.Transforms.Text.FeaturizeText("title_tf", "title"))
-                                      .Append(mlContext.Transforms.Text.FeaturizeText("original_title_tf", "original_title"))
-                                      .Append(mlContext.Transforms.Text.FeaturizeText("writer_tf", "writer"))
                                       .Append(mlContext.Transforms.Text.FeaturizeText("actors_tf", "actors"))
-                                      .Append(mlContext.Transforms.Text.FeaturizeText("description_tf", "description"))
-                                      .Append(mlContext.Transforms.Concatenate("Features", new[] { "director", "production_company", "title_tf", "original_title_tf", "writer_tf", "actors_tf", "description_tf", "duration" }))
+                                      .Append(mlContext.Transforms.Concatenate("Features", new[] { "title_tf", "actors_tf" }))
                                       .Append(mlContext.Transforms.NormalizeMinMax("Features", "Features"))
                                       .AppendCacheCheckpoint(mlContext);
             // Set the training algorithm 
-            var trainer = mlContext.MulticlassClassification.Trainers.OneVersusAll(mlContext.BinaryClassification.Trainers.AveragedPerceptron(labelColumnName: "genre", numberOfIterations: 10, featureColumnName: "Features"), labelColumnName: "genre")
+            var trainer = mlContext.MulticlassClassification.Trainers.SdcaMaximumEntropy(labelColumnName: "genre", featureColumnName: "Features")
                                       .Append(mlContext.Transforms.Conversion.MapKeyToValue("PredictedLabel", "PredictedLabel"));
 
             var trainingPipeline = dataProcessPipeline.Append(trainer);

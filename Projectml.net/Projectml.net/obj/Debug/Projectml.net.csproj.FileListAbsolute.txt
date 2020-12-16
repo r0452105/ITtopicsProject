@@ -58,3 +58,7 @@ C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\
 C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\obj\Debug\Views\GenreView.g.cs
 C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\obj\Debug\Views\GenreView.baml
 C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\obj\Debug\Projectml.net.csprojAssemblyReference.cache
+C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\bin\Debug\MLModel.zip
+C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\bin\Debug\Data\MLModel.zip
+C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\bin\Debug\Projectml.netML.Model.dll
+C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\bin\Debug\Projectml.netML.Model.pdb

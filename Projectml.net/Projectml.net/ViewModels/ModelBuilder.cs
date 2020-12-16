@@ -12,7 +12,7 @@ namespace Projectml.net.ViewModels
 {
     public class ModelBuilder
     {
-           
         
+
     }
 }
