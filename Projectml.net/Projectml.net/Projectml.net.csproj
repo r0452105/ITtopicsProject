@@ -174,12 +174,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Projectml.netML.Model\Projectml.netML.Model.csproj">
-      <Project>{58B8B00A-7E5E-4FD4-8464-71479ED4EBF1}</Project>
-      <Name>Projectml.netML.Model</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Data\IMDB DATASET ALL.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
