@@ -149,8 +149,8 @@ namespace Projectml.net.ViewModels
             }
         }
 
-        static readonly string _dataPath = Path.Combine(Environment.CurrentDirectory, "Data", "IMDBDATASETLARGE.txt");
-        static readonly string _modelPath = Path.Combine(Path.GetDirectoryName(Environment.GetCommandLineArgs()[0]), "..", "..", "Data", "MLModel.zip");
+        static readonly string _dataPath = Path.Combine(Environment.CurrentDirectory, "Data", "IMDBDATASETMEDIUM.txt");
+        static readonly string _modelPath = Path.Combine(Path.GetDirectoryName(Environment.GetCommandLineArgs()[0]), "..", "..", "Data", "MLModelWriter.zip");
         MLContext mlContext = new MLContext();
         TrainTestData splitDataView = new TrainTestData();
         ITransformer model;

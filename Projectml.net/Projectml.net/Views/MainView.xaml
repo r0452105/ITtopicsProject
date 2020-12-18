@@ -6,13 +6,28 @@
         xmlns:local="clr-namespace:Projectml.net.Views"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="MainView" Height="253.125" Width="800">
-    <Grid>
-        <StackPanel>
-            <Button Content="Voorspel Genre" Margin="5" Command="{Binding}" CommandParameter="Genre"/>
-            <Button Content="Voorspel Writer" Margin="5" Command="{Binding}" CommandParameter="Writer"/>
-            <Label Content="Under Construction" HorizontalAlignment="Center" FontSize="50" Margin="20"></Label>
-            <Label Content="Made by Aaron" HorizontalAlignment="Right"></Label>
+        Title="MainView" Height="600" Width="1100">
+    <Grid Background="Wheat" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="3.5*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Image Source="C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\Data\programtitle.png" Margin="86,0,87,47.667" Grid.ColumnSpan="3"/>
+        <StackPanel Grid.Row="1" Grid.RowSpan="2" Grid.Column="1">
+            <Button Content="Voorspel Genre" Command="{Binding}" CommandParameter="Genre" Background="SandyBrown" BorderBrush="SaddleBrown" Foreground="White" FontSize="12" Height="50" Margin="0,15"/>
+            <Button Content="Voorspel Writer" Command="{Binding}" CommandParameter="Writer" Background="SandyBrown" BorderBrush="SaddleBrown" Foreground="White" FontSize="12" Height="50" Margin="0,15" />
+            <Button Content="Woordje van de maker" Command="{Binding}" CommandParameter="Writer" Background="SandyBrown" BorderBrush="SaddleBrown" Foreground="White" FontSize="12" Height="50" Margin="0,15" />
         </StackPanel>
+        <Label Content="Made by Aaron" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom" Height="52" Width="100" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Right" Margin="0,137.333,0,0.667"/>
+        <Image Source="C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\Data\Professor.png" Margin="23,90,30,24.667" Grid.RowSpan="3" Grid.Column="2"/>
+        <Image Source="C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\Data\ProfessorSpiegel.png" Margin="10,90,43,24.667" Grid.RowSpan="3"/>
+
+
     </Grid>
 </Window>
