@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using Microsoft.ML.Trainers;
 using Microsoft.ML.Transforms.Text;
 using static Microsoft.ML.DataOperationsCatalog;
+using System.Windows;
+using GalaSoft.MvvmLight.Command;
 
 namespace Projectml.net.ViewModels
 {
@@ -231,6 +233,22 @@ namespace Projectml.net.ViewModels
             this.TextDirector = "";
             this.TextGenre = "";
             this.TextProduction_Company = "";
+        }
+
+        public WriterViewModel()
+        {
+            this.CloseWindowCommand = new RelayCommand<Window>(this.CloseWindow);
+        }
+
+        public RelayCommand<Window> CloseWindowCommand { get; private set; }
+
+
+        private void CloseWindow(Window window)
+        {
+            if (window != null)
+            {
+                window.Close();
+            }
         }
     }
 }

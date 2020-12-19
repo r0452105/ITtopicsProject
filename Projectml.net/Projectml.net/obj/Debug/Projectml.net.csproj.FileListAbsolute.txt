@@ -62,3 +62,14 @@ C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\
 C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\obj\Debug\Projectml.net.exe
 C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\obj\Debug\Projectml.net.pdb
 C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\obj\Debug\Projectml.net.csprojAssemblyReference.cache
+C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\bin\Debug\CommonServiceLocator.dll
+C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\bin\Debug\GalaSoft.MvvmLight.dll
+C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\bin\Debug\GalaSoft.MvvmLight.Extras.dll
+C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\bin\Debug\GalaSoft.MvvmLight.Platform.dll
+C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\bin\Debug\GalaSoft.MvvmLight.pdb
+C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\bin\Debug\GalaSoft.MvvmLight.xml
+C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
+C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\bin\Debug\GalaSoft.MvvmLight.Extras.xml
+C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
+C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\bin\Debug\GalaSoft.MvvmLight.Platform.xml

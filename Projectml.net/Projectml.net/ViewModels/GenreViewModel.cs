@@ -1,14 +1,13 @@
 ﻿using Projectml.net.Models;
 using Microsoft.ML;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.ML.Trainers;
-using Microsoft.ML.Transforms.Text;
+using System.Windows.Input;
+using Projectml.net.ViewModels;
+using GalaSoft.MvvmLight.Command;
 using static Microsoft.ML.DataOperationsCatalog;
+using System.Windows;
 
 namespace Projectml.net.ViewModels
 {
@@ -149,7 +148,7 @@ namespace Projectml.net.ViewModels
             }
         }
 
-        static readonly string _dataPath = Path.Combine(Environment.CurrentDirectory, "Data", "IMDBDATASETLARGE.txt");
+        static readonly string _dataPath = Path.Combine(Environment.CurrentDirectory, "Data", "IMDBDATASETMEDIUM.txt");
         static readonly string _modelPath = Path.Combine(Path.GetDirectoryName(Environment.GetCommandLineArgs()[0]), "..", "..", "Data", "MLModel.zip");
         MLContext mlContext = new MLContext();
         TrainTestData splitDataView = new TrainTestData();
@@ -232,5 +231,23 @@ namespace Projectml.net.ViewModels
             this.TextWriter = "";
             this.TextProduction_Company = "";
         }
+
+        public GenreViewModel()
+        {
+            this.CloseWindowCommand = new RelayCommand<Window>(this.CloseWindow);
+        }
+
+        public RelayCommand<Window> CloseWindowCommand { get; private set; }
+
+
+        private void CloseWindow(Window window)
+        {
+            if (window != null)
+            {
+                window.Close();
+            }
+        }
     }
+
+  
 }

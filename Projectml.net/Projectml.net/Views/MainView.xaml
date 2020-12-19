@@ -22,7 +22,6 @@
         <StackPanel Grid.Row="1" Grid.RowSpan="2" Grid.Column="1">
             <Button Content="Voorspel Genre" Command="{Binding}" CommandParameter="Genre" Background="SandyBrown" BorderBrush="SaddleBrown" Foreground="White" FontSize="12" Height="50" Margin="0,15"/>
             <Button Content="Voorspel Writer" Command="{Binding}" CommandParameter="Writer" Background="SandyBrown" BorderBrush="SaddleBrown" Foreground="White" FontSize="12" Height="50" Margin="0,15" />
-            <Button Content="Woordje van de maker" Command="{Binding}" CommandParameter="Writer" Background="SandyBrown" BorderBrush="SaddleBrown" Foreground="White" FontSize="12" Height="50" Margin="0,15" />
         </StackPanel>
         <Label Content="Made by Aaron" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom" Height="52" Width="100" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Right" Margin="0,137.333,0,0.667"/>
         <Image Source="C:\Users\Gebruiker\Documents\GitHub\ITtopicsProject\Projectml.net\Projectml.net\Data\Professor.png" Margin="23,90,30,24.667" Grid.RowSpan="3" Grid.Column="2"/>
